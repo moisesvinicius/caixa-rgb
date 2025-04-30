@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Caixa com Cores RGB</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background: #f0f4f8;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    h1 {
+      margin-bottom: 30px;
+      color: #333;
+    }
+
+    .caixa {
+      width: 200px;
+      height: 200px;
+      background-color: #222;
+      border-radius: 20px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      margin-bottom: 30px;
+      transition: background-color 0.3s;
+    }
+
+    input {
+      padding: 12px;
+      font-size: 16px;
+      border: 2px solid #ccc;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      width: 220px;
+    }
+
+    .botao {
+      padding: 15px 30px;
+      background-color: #0077ff;
+      color: #fff;
+      border: none;
+      border-radius: 12px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 6px 15px rgba(0, 119, 255, 0.3);
+      transition: background-color 0.3s, transform 0.2s;
+    }
+
+    .botao:hover {
+      background-color: #005ee6;
+      transform: scale(1.05);
+    }
+
+    .botao:active {
+      transform: scale(0.98);
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Caixa RGB</h1>
+  <div class="caixa" id="caixa"></div>
+  
+  <input type="text" id="corInput" placeholder="Digite uma cor: ex. rgb(0,255,0)">
+  <button class="botao" id="btnMudarCor">Mudar Cor</button>
+<script>
+  const btn = document.getElementById("btnMudarCor");
+  const caixa = document.getElementById("caixa");
+  const input = document.getElementById("corInput");
+
+  btn.addEventListener("click", () => {
+    const cor = input.value.trim();
+
+    // Testar se o valor começa com "rgb(" e termina com ")"
+    if (cor.startsWith("rgb(") && cor.endsWith(")")) {
+      caixa.style.backgroundColor = cor;
+    } else {
+      alert("Digite a cor no formato correto: rgb(0, 128, 255)");
+    }
+  });
+</script>
+
+</body>
+</html>
